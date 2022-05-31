@@ -1,0 +1,14 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+int a[100000];
+int main()
+         {
+    int i;
+    ofstream of("DATA.in");
+    ifstream f ("DATA.in");
+    while(f>>i){
+        a[i]++;
+    }
+    for(i=0;i<=100000;i++){if(a[i]>=1)cout<<i<<" "<<a[i]<<endl;}
+         }
