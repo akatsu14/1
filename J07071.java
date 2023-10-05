@@ -16,7 +16,7 @@ public class J07071 {
         int t = Integer.parseInt(sc.nextLine());
         List<String[]> tenVietTat = new ArrayList<>();
         while (t-- > 0) {
-            String[] s=sc.nextLine().split("\\.");
+            String[] s = sc.nextLine().split("\\.");
             tenVietTat.add(s);
         }
         list.sort((a, b) -> {
@@ -24,26 +24,27 @@ public class J07071 {
                 return a.firstName.compareTo(b.firstName);
             }
             return a.lastName.compareTo(b.lastName);
-        });    
+        });
         String[] k2 = { "T", "*", "D" };
         tenVietTat.add(k2);
         for (String[] i : tenVietTat) {
-            list2.addAll( list.stream()
+            list2.addAll(list.stream()
                     .filter(a -> {
-                        if (i.length!=a.fullName.split("\\s").length)return false;
-                        if (i[i.length-1].equals("*")) {
+                        if (i.length != a.fullName.split("\\s").length)
+                            return false;
+                        if (i[i.length - 1].equals("*")) {
                             return (a.first.equals(i[0]) &&
                                     a.middle.equals(i[1]));
                         } else if (i[1].equals("*")) {
                             return (a.first.equals(i[0]) &&
-                                    a.last.equals(i[i.length-1]));
+                                    a.last.equals(i[i.length - 1]));
                         } else {
                             return (a.middle.equals(i[1]) &&
-                                    a.last.equals(i[i.length-1]));
+                                    a.last.equals(i[i.length - 1]));
                         }
                     }).collect(Collectors.toList()));
         }
-        
+
         list2.forEach(System.out::println);
     }
 

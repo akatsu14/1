@@ -4,16 +4,16 @@ import java.util.List;
 import java.util.Scanner;
 
 public class J07072 {
-    public static void main(String[] args) throws Exception{
-        Scanner sc=new Scanner(new File("DANHSACH.in"));
-        List<DanhSach> list=new ArrayList<>();
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(new File("DANHSACH.in"));
+        List<DanhSach> list = new ArrayList<>();
         while (sc.hasNextLine()) {
             list.add(DanhSach.newDanhSach(sc));
         }
-        list.sort((a,b)->{
-            if(a.lastName.equals(b.lastName)){
-                if(a.firstName.equals(b.firstName)){
-                    return a.middleName.compareTo(b.middleName); 
+        list.sort((a, b) -> {
+            if (a.lastName.equals(b.lastName)) {
+                if (a.firstName.equals(b.firstName)) {
+                    return a.middleName.compareTo(b.middleName);
                 }
                 return a.firstName.compareTo(b.firstName);
             }
@@ -21,19 +21,23 @@ public class J07072 {
         });
         list.forEach(System.out::println);
     }
+
     static class DanhSach {
-        private String fullName,firstName,lastName,middleName;
-        DanhSach(String name){
-            this.fullName=normalizeName(name);
-            String[] s= this.fullName.split(" ");
-            this.lastName=s[s.length-1];
-            this.firstName=s[0];
-            this.middleName=s[1];
+        private String fullName, firstName, lastName, middleName;
+
+        DanhSach(String name) {
+            this.fullName = normalizeName(name);
+            String[] s = this.fullName.split(" ");
+            this.lastName = s[s.length - 1];
+            this.firstName = s[0];
+            this.middleName = s[1];
         }
-        public static DanhSach newDanhSach(Scanner sc){
-            String name=sc.nextLine().trim();
+
+        public static DanhSach newDanhSach(Scanner sc) {
+            String name = sc.nextLine().trim();
             return new DanhSach(name);
         }
+
         private String normalizeName(String name) {
             String[] s = name.split("\\s+");
             String s1 = "";
@@ -42,9 +46,10 @@ public class J07072 {
             }
             return s1.trim();
         }
+
         @Override
-        public String toString(){
+        public String toString() {
             return fullName;
         }
-    } 
+    }
 }
