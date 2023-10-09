@@ -1,8 +1,8 @@
-package data;
+package src.data;
 
 import java.util.List;
 
-import component.Role;
+import src.component.Role;
 
 public class Student extends User {
 

@@ -1,15 +1,14 @@
-package controller;
+package src.controller;
 
-import dao.DataRespository;
-import data.Faculty;
+import src.dao.DataRespository;
+import src.data.Faculty;
 
 public class FacultyController {
-    
+
     private DataRespository<Faculty> facultyRespository;
 
     public FacultyController(DataRespository<Faculty> facultyRespository) {
         this.facultyRespository = facultyRespository;
     }
 
-    
 }

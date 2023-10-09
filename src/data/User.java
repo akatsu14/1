@@ -1,4 +1,4 @@
-package data;
+package src.data;
 
 public class User {
 
@@ -26,5 +26,4 @@ public class User {
         this.password = password;
     }
 
-    
 }

@@ -1,15 +1,15 @@
-package controller;
+package src.controller;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-import dao.DataRespository;
-import data.Course;
-import data.Student;
+import src.dao.DataRespository;
+import src.data.Course;
+import src.data.Student;
 
 public class AdminController {
-    
+
     private DataRespository<Course> courseRespository;
     private DataRespository<Student> studentRespository;
 

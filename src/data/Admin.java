@@ -1,6 +1,6 @@
-package data;
+package src.data;
 
-import component.Role;
+import src.component.Role;
 
 public class Admin extends User {
 

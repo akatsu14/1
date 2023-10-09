@@ -1,5 +1,5 @@
-package view;
+package src.view;
 
 public class StudentView {
-    
+
 }

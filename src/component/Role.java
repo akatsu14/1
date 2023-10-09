@@ -1,4 +1,4 @@
-package component;
+package src.component;
 
 public enum Role {
 

@@ -1,4 +1,4 @@
-package dao;
+package src.dao;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import data.Student;
+import src.data.Student;
 
 public class StudentDAOImpl implements DataRespository<Student> {
 
