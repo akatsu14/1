@@ -72,7 +72,7 @@ public class J04002 {
         width = sc.nextDouble();
         String color = sc.next();
         Rectange rec = new Rectange(width, height, color);
-        if (height >= 0 && width >= 0)
+        if (height > 0 && width > 0)
             System.out.print(rec);
         else
             System.out.print("INVALID");

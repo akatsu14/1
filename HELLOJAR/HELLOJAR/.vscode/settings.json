@@ -1,0 +1,8 @@
+{
+  "java.project.sourcePaths": ["src"],
+  "java.project.outputPath": "bin",
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "c:\\Users\\Manh Luong\\Desktop\\B21DCDT144\\nam_3\\lapTrinhHuongDoiTuong\\trenLop\\HELLOJAR\\HELLOJAR.jar"
+  ]
+}
