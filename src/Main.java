@@ -1,7 +1,5 @@
-package src;
-
-import src.data.Admin;
-import src.view.AdminView;
+import data.Admin;
+import view.AdminView;
 
 public class Main {
 

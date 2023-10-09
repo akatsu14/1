@@ -1,12 +1,12 @@
-package src.view;
+package view;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-import src.dao.CourseDAOImpl;
-import src.data.Course;
+import dao.CourseDAOImpl;
+import data.Course;
 
 public class AdminView {
 

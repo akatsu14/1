@@ -1,12 +1,12 @@
-package src.controller;
+package controller;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-import src.dao.DataRespository;
-import src.data.Course;
-import src.data.Student;
+import dao.DataRespository;
+import data.Course;
+import data.Student;
 
 public class AdminController {
 

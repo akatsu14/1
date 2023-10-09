@@ -1,7 +1,7 @@
-package src.controller;
+package controller;
 
-import src.dao.DataRespository;
-import src.data.Faculty;
+import dao.DataRespository;
+import data.Faculty;
 
 public class FacultyController {
 
