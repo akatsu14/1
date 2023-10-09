@@ -44,8 +44,22 @@ class ThiSinh {
 
     @Override
     public String toString() {
-        return ma + " " + ten + " " + ((diemUuTien() == diemUuTien().longValue()) ? diemUuTien().longValue()
-                : diemUuTien()) + " " + tongDiem() + " " + trangThai();
+        if (diemUuTien() == diemUuTien().longValue()) {
+            if (tongDiem() == tongDiem().longValue()) {
+                return ma + " " + ten + " " + diemUuTien().longValue()
+                        + " " + tongDiem().longValue() + " " + trangThai();
+            } else
+                return ma + " " + ten + " " + diemUuTien().longValue()
+                        + " " + tongDiem() + " " + trangThai();
+        } else {
+            if (tongDiem() == tongDiem().longValue()) {
+                return ma + " " + ten + " " + diemUuTien()
+                        + " " + tongDiem().longValue() + " " + trangThai();
+            } else {
+                return ma + " " + ten + " " + diemUuTien()
+                        + " " + tongDiem() + " " + trangThai();
+            }
+        }
     }
 }
 
