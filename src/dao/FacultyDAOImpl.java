@@ -1,18 +1,11 @@
 package dao;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.io.*;
+import java.util.*;
 import java.util.stream.Collectors;
-
 import data.Faculty;
 
-public class FacultyDAOImpl implements DataRespository<Faculty> {
+public class FacultyDAOImpl implements DataRepository<Faculty> {
 
     private List<Faculty> faculties;
     private final String DATA_SOURCE;

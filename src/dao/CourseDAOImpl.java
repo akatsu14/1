@@ -1,19 +1,11 @@
 package dao;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.io.*;
+import java.util.*;
 import java.util.stream.Collectors;
-
 import data.Course;
 
-public class CourseDAOImpl implements DataRespository<Course> {
+public class CourseDAOImpl implements DataRepository<Course> {
 
     private List<Course> courses;
     private final String DATA_SOURCE;
@@ -25,7 +17,6 @@ public class CourseDAOImpl implements DataRespository<Course> {
                 .lines()
                 .skip(1)
                 .map(line -> {
-                    System.out.println(line);
                     String[] words = line.split(",");
                     if (words.length != 8) {
                         return null;
@@ -35,14 +26,13 @@ public class CourseDAOImpl implements DataRespository<Course> {
                                 words[1],
                                 Integer.parseInt(words[2]),
                                 Integer.parseInt(words[3]),
-                                Arrays.asList(words[4].split(";")),
+                                Arrays.asList(words[4].split("|")),
                                 words[5],
                                 Integer.parseInt(words[6]),
                                 words[7]);
                     }
                 })
                 .collect(Collectors.toList());
-
         bufferedReader.close();
     }
 
@@ -104,7 +94,7 @@ public class CourseDAOImpl implements DataRespository<Course> {
                                 e.getCourseName() + "," +
                                 e.getMaxStudent() + "," +
                                 e.getCurrentStudent() + "," +
-                                e.getNames().stream().reduce("", (s1, s2) -> s1 + ";" + s2) + "," +
+                                e.getNames().stream().reduce("", (s1, s2) -> s1 + "|" + s2) + "," +
                                 e.getCourseInstructor() + "," +
                                 e.getCourseSection() + "," +
                                 e.getCourseLocation());

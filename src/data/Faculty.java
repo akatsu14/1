@@ -2,9 +2,7 @@ package data;
 
 import java.util.List;
 
-import component.Role;
-
-public class Faculty extends User {
+public class Faculty {
 
     private String id;
     private String name;
@@ -13,11 +11,9 @@ public class Faculty extends User {
     private String phoneNumber;
     private String department;
     private List<String> courseId;
-    private Role role = Role.FACULTY;
 
     public Faculty(String id, String name, String email, String address, String phoneNumber, String department,
             List<String> courseId) {
-        super(id, phoneNumber);
         this.id = id;
         this.name = name;
         this.email = email;
@@ -81,14 +77,6 @@ public class Faculty extends User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 
 }

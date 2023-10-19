@@ -93,8 +93,4 @@ public class Course {
         this.courseLocation = courseLocation;
     }
 
-    public String getAllCourses() {
-        return courseId + courseName + maxStudent + currentStudent + names + courseInstructor + courseSection
-                + courseLocation + " ";
-    }
 }
