@@ -25,7 +25,7 @@ public class Main {
             username = scanner.nextLine();
             System.out.print("Password: ");
             password = scanner.nextLine();
-            scanner.close();
+            // scanner.close();
             Optional<Account> account = accountRepository.findById(username);
             if (account.isPresent()) {
                 if (account.get().getPassword().equals(password)) {
@@ -36,14 +36,14 @@ public class Main {
                             AdminView.selection();
                             Scanner newScanner = new Scanner(System.in);
                             int selection = newScanner.nextInt();
-                            newScanner.close();
+                            // newScanner.close();
 
                             switch (selection) {
                                 case 1:
                                     AdminView.Management.selection();
                                     Scanner newScanner1 = new Scanner(System.in);
                                     int selection1 = newScanner1.nextInt();
-                                    newScanner1.close();
+                                    // newScanner1.close();
                                     switch (selection1) {
                                         case 1:
                                             adminView.selection_1_1();
@@ -71,8 +71,8 @@ public class Main {
                                 case 2:
                                     AdminView.Reports.selection();
                                     Scanner newScanner2 = new Scanner(System.in);
-                                    int selection2 = newScanner2.nextInt();
-                                    newScanner2.close();
+                                    int selection2 = newScanner.nextInt();
+                                    // newScanner2.close();
                                     switch (selection2) {
                                         case 1:
                                             adminView.selection_2_1();
@@ -106,9 +106,9 @@ public class Main {
                             StudentController studentController = new StudentController(username);
                             StudentView studentView = new StudentView(studentController);
                             StudentView.view();
-                            Scanner scanner2 = new Scanner(System.in);
-                            int selection2 = scanner2.nextInt();
-                            scanner2.close();
+                            // Scanner scanner2 = new Scanner(System.in);
+                            int selection2 = scanner.nextInt();
+                            // scanner2.close();
                             switch (selection2) {
                                 case 1:
                                     studentView.select_1();
@@ -133,13 +133,13 @@ public class Main {
                                     break;
                             }
                             break;
-                        case "instructor":
+                        case "faculty":
                             FacultyController instructorController = new FacultyController(username);
                             FacultyView instructorView = new FacultyView(instructorController);
                             FacultyView.view();
                             Scanner scanner3 = new Scanner(System.in);
                             int selection3 = scanner3.nextInt();
-                            scanner3.close();
+                            // scanner3.close();
                             switch (selection3) {
                                 case 1:
                                     instructorView.select_1();

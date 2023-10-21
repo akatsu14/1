@@ -1,5 +1,7 @@
 package controller;
+
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -11,7 +13,7 @@ import data.Course;
 import data.Faculty;
 
 public class FacultyController {
-    
+
     private Faculty session;
 
     public FacultyController(String id) {
@@ -38,16 +40,16 @@ public class FacultyController {
             DataRepository<Course> courseRepo = new CourseDAOImpl("course.csv");
             System.out.println("Courses are free in below:");
             courseRepo.findAll()
-                .stream()
-                .filter(e -> e.getCourseInstructor() == null && this.session.getCourseId().contains(e.getCourseId()) == false)
-                .forEach(e -> {
+                    .stream()
+                    .filter(e -> e.getCourseInstructor() == null
+                            && this.session.getCourseId().contains(e.getCourseId()) == false)
+                    .forEach(e -> {
                         System.out.println("Course ID: " + e.getCourseId());
                         System.out.println("Course Name: " + e.getCourseName());
                         System.out.println("Course Section: " + e.getCourseSection());
                         System.out.println("Course Location: " + e.getCourseLocation());
                         System.out.println("==================================================");
-                    }
-                );
+                    });
         } catch (IOException e) {
             System.out.println("Data source problem!");
         }
@@ -67,7 +69,7 @@ public class FacultyController {
                 courseRepo.deleteById(id);
                 courseRepo.save(course);
 
-                List<String> courseId = this.session.getCourseId();
+                List<String> courseId = new ArrayList<>(this.session.getCourseId());
                 courseId.add(id);
                 this.session.setCourseId(courseId);
                 DataRepository<Faculty> facultyRepo = new FacultyDAOImpl("faculty.csv");
@@ -93,7 +95,7 @@ public class FacultyController {
             String courseId = scanner.next();
             scanner.close();
             if (this.session.getCourseId().contains(courseId)) {
-                List<String> courseIds = this.session.getCourseId();
+                List<String> courseIds = new ArrayList<>(this.session.getCourseId());
                 courseIds.remove(courseId);
                 this.session.setCourseId(courseIds);
                 DataRepository<Faculty> facultyRepo = new FacultyDAOImpl("faculty.csv");

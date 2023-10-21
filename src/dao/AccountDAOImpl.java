@@ -24,26 +24,6 @@ public class AccountDAOImpl implements DataRepository<Account> {
     }
 
     @Override
-    public boolean deleteById(String accountId) throws IOException {
-        boolean isSuccess = accounts.removeIf(e -> e.getId().equals(accountId));
-        if (isSuccess) {
-            this.saveAll();
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public List<Account> findAll() {
-        return accounts;
-    }
-
-    @Override
-    public Optional<Account> findById(String accountId) {
-        return accounts.stream().filter(e -> e.getId().equals(accountId)).findAny();
-    }
-
-    @Override
     public boolean save(Account account) throws IOException {
         if (accounts.stream().anyMatch(e -> e.getId().equals(account.getId()))) {
             return false;
@@ -70,4 +50,23 @@ public class AccountDAOImpl implements DataRepository<Account> {
         bufferedWriter.close();
     }
 
+    @Override
+    public List<Account> findAll() {
+        return accounts;
+    }
+
+    @Override
+    public Optional<Account> findById(String accountId) {
+        return accounts.stream().filter(e -> e.getId().equals(accountId)).findAny();
+    }
+
+    @Override
+    public boolean deleteById(String accountId) throws IOException {
+        boolean isSuccess = accounts.removeIf(e -> e.getId().equals(accountId));
+        if (isSuccess) {
+            this.saveAll();
+            return true;
+        }
+        return false;
+    }
 }

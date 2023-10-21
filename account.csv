@@ -1,1 +1,4 @@
 id,password,role
+student,123,student
+faculty,123,faculty
+admin,123,admin

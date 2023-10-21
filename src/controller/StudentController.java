@@ -78,7 +78,7 @@ public class StudentController {
                 courseRepo.deleteById(id);
                 courseRepo.save(course);
 
-                List<String> courseId = this.session.getCourseId();
+                List<String> courseId = new ArrayList<>(this.session.getCourseId());
                 courseId.add(id);
                 this.session.setCourseId(courseId);
                 DataRepository<Student> studentRepo = new StudentDAOImpl("student.csv");
@@ -99,7 +99,7 @@ public class StudentController {
             String courseId = scanner.next();
             scanner.close();
             if (this.session.getCourseId().contains(courseId)) {
-                List<String> courseIds = this.session.getCourseId();
+                List<String> courseIds = new ArrayList<>(this.session.getCourseId());
                 courseIds.remove(courseId);
                 this.session.setCourseId(courseIds);
                 DataRepository<Student> studentRepo = new StudentDAOImpl("student.csv");

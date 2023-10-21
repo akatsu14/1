@@ -26,7 +26,7 @@ public class CourseDAOImpl implements DataRepository<Course> {
                                 words[1],
                                 Integer.parseInt(words[2]),
                                 Integer.parseInt(words[3]),
-                                Arrays.asList(words[4].split("|")),
+                                Arrays.asList(words[4].split("\\|")),
                                 words[5],
                                 Integer.parseInt(words[6]),
                                 words[7]);

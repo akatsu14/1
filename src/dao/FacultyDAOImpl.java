@@ -28,7 +28,7 @@ public class FacultyDAOImpl implements DataRepository<Faculty> {
                                 words[3],
                                 words[4],
                                 words[5],
-                                Arrays.asList(words[6].split("|")));
+                                Arrays.asList(words[6].split("\\|")));
                     }
                 })
                 .collect(Collectors.toList());

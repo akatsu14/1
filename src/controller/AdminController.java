@@ -18,14 +18,14 @@ public class AdminController {
         System.out.println("Enter course id: ");
         String id = scanner.nextLine();
         System.out.println("Enter course max students: ");
-        int maxStudents = scanner.nextInt();
+        int maxStudents = Integer.parseInt(scanner.nextLine());
         System.out.println("Enter course instructor: ");
         String instructor = scanner.nextLine();
         System.out.println("Enter course section: ");
-        int section = scanner.nextInt();
+        int section = Integer.parseInt(scanner.nextLine());
         System.out.println("Enter course location: ");
         String location = scanner.nextLine();
-        Course course = new Course(id, name, maxStudents, 0, null, instructor, section, location);
+        Course course = new Course(id, name, maxStudents, 0, new ArrayList<>(), instructor, section, location);
         DataRepository<Course> courseRepository;
         try {
             courseRepository = new CourseDAOImpl("course.csv");
@@ -75,14 +75,16 @@ public class AdminController {
                 System.out.println("Enter new course id: ");
                 String newId = scanner.nextLine();
                 System.out.println("Enter new course max students: ");
-                int maxStudents = scanner.nextInt();
+                int maxStudents = Integer.parseInt(scanner.nextLine());
                 System.out.println("Enter new course instructor: ");
                 String instructor = scanner.nextLine();
                 System.out.println("Enter new course section: ");
-                int section = scanner.nextInt();
+                int section = Integer.parseInt(scanner.nextLine());
+                scanner.nextLine();
                 System.out.println("Enter new course location: ");
                 String location = scanner.nextLine();
-                Course newCourse = new Course(newId, name, maxStudents, 0, null, instructor, section, location);
+                Course newCourse = new Course(newId, name, maxStudents, 0, new ArrayList<>(), instructor, section,
+                        location);
                 courseRepository.deleteById(course.get().getCourseId());
                 courseRepository.save(newCourse);
             } else {
@@ -224,7 +226,7 @@ public class AdminController {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Datasource problem!");
+            System.out.println("Datasource problem!2");
         }
         scanner.close();
     }
@@ -246,7 +248,7 @@ public class AdminController {
                 System.out.println("Location: " + course.getCourseLocation());
             }
         } catch (IOException e) {
-            System.out.println("Datasource problem!");
+            System.out.println("Datasource problem!1");
         }
     }
 }
